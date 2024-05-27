@@ -10,16 +10,13 @@
 
     <p><a href="/my-phrases/new-phrase">Add a new phrase</a></p>
 
-    <table>
-        <tr>
-          <th>French phrases</th>
-          <th>Translation</th>
-        </tr>
-        <tr>
-          <td>Se casser la tete</td>
-          <td>To go to trouble</td>
-        </tr>
-      </table>
+  <ul>
+    <% phrases.forEach(phrase=> { %>
+      <li>
+        <%= phrase.phrase %> - <%= phrase.translatedToEng %>
+      </li>
+      <% }) %>
+  </ul>
 
 </body>
 </html>
