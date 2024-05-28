@@ -109,3 +109,9 @@ app.delete('/my-phrases/:phraseId', async (req, res) => {
     await Phrases.findByIdAndDelete(req.params.phraseId)
     res.redirect('/my-phrases')
 })
+
+
+app.put('/my-words/:wordId', async (req, res) => {
+    const updateWord = await Words.findByIdAndUpdate(req.params.wordId, req.body, { new: true })
+    res.redirect('/my-words')
+})
