@@ -9,12 +9,24 @@
     <h1><%= singlePhrase.phrase %></h1>
 
     <p>
-        <%= singlePhrase.phrase %> - <%= singlePhrase.translatedToEng %>
+        <%= singlePhrase.translatedToEng %>
     </p>
 
     <form action="/my-phrases/<%= singlePhrase._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
     </form>
+
+
+    <h2>Edit</h2>
+
+    <form action="/my-phrases/<%= singlePhrase._id %>?_method=PUT" method="POST">
+        <label for="phrase">Word</label>
+        <input type="text" name="phrase" id="phrase" value="<%= singlePhrase.phrase %>">
+        <label for="translatedToEng">Translation</label>
+        <input type="text" name="translatedToEng" id="translatedToEng" value="<%= singlePhrase.translatedToEng %>">
+        <button type="submit">Update</button>
+    </form>
+
 
 </body>
 </html>

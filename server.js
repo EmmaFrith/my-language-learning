@@ -112,6 +112,11 @@ app.delete('/my-phrases/:phraseId', async (req, res) => {
 
 
 app.put('/my-words/:wordId', async (req, res) => {
-    const updateWord = await Words.findByIdAndUpdate(req.params.wordId, req.body, { new: true })
+    const updateWord = await Words.findByIdAndUpdate(req.params.wordId, req.body)
     res.redirect('/my-words')
+})
+
+app.put('/my-phrases/:phraseId', async (req, res) => {
+    const updateWord = await Phrases.findByIdAndUpdate(req.params.phraseId, req.body)
+    res.redirect('/my-phrases')
 })
