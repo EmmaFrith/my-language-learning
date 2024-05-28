@@ -18,7 +18,15 @@
         <button type="submit">Delete</button>
     </form>
 
+    <h2>Edit</h2>
 
+    <form action="/my-words/<%= singleWord._id %>?_method=PUT" method="POST">
+        <label for="word">Word</label>
+        <input type="text" name="name" id="word" value="<%= singleWord.word %>">
+        <label for="translatedToEng">Translation</label>
+        <input type="text" name="translatedToEng" id="translatedToEng" value="<%= singleWord.translatedToEng %>">
+        <button type="submit">Submit</button>
+    </form>
 
 </body>
 </html>
