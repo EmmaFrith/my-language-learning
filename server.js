@@ -98,3 +98,14 @@ app.get('/my-phrases/:phraseId', async (req, res) => {
         singlePhrase
     });
 })
+
+
+app.delete('/my-words/:wordId', async (req, res) => {
+    await Words.findByIdAndDelete(req.params.wordId)
+    res.redirect('/my-words')
+})
+
+app.delete('/my-phrases/:phraseId', async (req, res) => {
+    await Phrases.findByIdAndDelete(req.params.phraseId)
+    res.redirect('/my-phrases')
+})

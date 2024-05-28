@@ -14,7 +14,10 @@
         <%= singleWord.word %> - <%= singleWord.translatedToEng %>
     </p>
 
-    <p><a href="/">Delete this entry</a></p>
+    <form action="/my-words/<%= singleWord._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+
 
 
 </body>

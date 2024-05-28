@@ -12,8 +12,9 @@
         <%= singlePhrase.phrase %> - <%= singlePhrase.translatedToEng %>
     </p>
 
-    <p><a href="/">Delete this entry</a></p>
-
+    <form action="/my-phrases/<%= singlePhrase._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+    </form>
 
 </body>
 </html>
