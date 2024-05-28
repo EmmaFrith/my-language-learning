@@ -24,6 +24,10 @@ const Words = require('./models/words.js');
 
 const Phrases = require('./models/phrases.js');
 
+const path = require('path')
+
+const port = process.env.PORT ? process.env.PORT : 3000;
+
 app.use(express.json())
 
 app.use(express.urlencoded({ extended: false }));
@@ -32,10 +36,7 @@ app.use(methodOverride("_method"))
 
 app.use(morgan('dev'));
 
-
-const port = process.env.PORT ? process.env.PORT : 3000;
-
-
+app.use(express.static(path.join(__dirname, "public")))
 
 
 app.get("/", (req, res) => {
