@@ -13,7 +13,7 @@
   <ul>
     <% phrases.forEach(phrase=> { %>
       <li>
-        <%= phrase.phrase %> - <%= phrase.translatedToEng %> <a href="/my-phrases/single-phrase">Change</a>
+        <%= phrase.phrase %> - <%= phrase.translatedToEng %> <a href="/my-phrases/<%= phrase._id %>">Change</a>
       </li>
       <% }) %>
   </ul>

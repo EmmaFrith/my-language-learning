@@ -90,6 +90,11 @@ app.get('/my-words/:wordId', async (req, res) => {
     });
 })
 
-app.get('/my-phrases/single-phrase', (req, res) => {
-    res.render('phrases/single-phrase.ejs');
+app.get('/my-phrases/:phraseId', async (req, res) => {
+
+    const singlePhrase = await Phrases.findById(req.params.phraseId)
+
+    res.render('phrases/single-phrase.ejs', {
+        singlePhrase
+    });
 })
