@@ -44,12 +44,12 @@ app.get("/", (req, res) => {
     res.render("home.ejs");
 });
 
- app.get("/my-words", async (req, res) => {
+app.get("/my-words", async (req, res) => {
     const words = await Words.find()
-     res.render("words/my-words.ejs", {
+    res.render("words/my-words.ejs", {
         words
-     });
- });
+    });
+});
 
 app.get("/my-phrases", async (req, res) => {
     const phrases = await Phrases.find()
@@ -67,14 +67,29 @@ app.get("/my-phrases/new-phrase", (req, res) => {
 });
 
 app.post("/my-words", async (req, res) => {
-    console.log(req.body)
     await Words.create(req.body)
     res.redirect('/my-words')
 })
 
 app.post("/my-phrases", async (req, res) => {
-    console.log(req.body)
     await Phrases.create(req.body)
     res.redirect('/my-phrases')
 })
 
+
+app.get('/my-words/:wordId', async (req, res) => {
+
+    console.log(req.params.wordId)
+
+    const singleWord = await Words.findById(req.params.wordId)
+
+    // res.send(singleWord) 
+
+    res.render('words/single-word.ejs', {
+        singleWord
+    });
+})
+
+app.get('/my-phrases/single-phrase', (req, res) => {
+    res.render('phrases/single-phrase.ejs');
+})
