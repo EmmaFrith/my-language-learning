@@ -16,7 +16,7 @@
   <ul>
     <% words.forEach(word=> { %>
       <li>
-        <%= word.word %> - <%= word.translatedToEng %> <a href="/">Change</a>
+        <%= word.word %> - <%= word.translatedToEng %> <a href="/my-words/<%= word._id %>">Change</a>
       </li>
       <% }) %>
   </ul>
