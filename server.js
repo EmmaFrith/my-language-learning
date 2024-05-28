@@ -1,5 +1,5 @@
 
-
+const Users = require("./models/users.js");
 
 const express = require('express');
 const app = express();
@@ -7,6 +7,7 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 
+const bcrypt = require('bcrypt');
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
@@ -23,7 +24,6 @@ const Words = require('./models/words.js');
 
 const Phrases = require('./models/phrases.js');
 
-
 app.use(express.json())
 
 app.use(express.urlencoded({ extended: false }));
@@ -35,9 +35,7 @@ app.use(morgan('dev'));
 
 const port = process.env.PORT ? process.env.PORT : 3000;
 
-app.listen(port, () => {
-    console.log("Listening on port", process.env.PORT);
-});
+
 
 
 app.get("/", (req, res) => {
@@ -120,3 +118,44 @@ app.put('/my-phrases/:phraseId', async (req, res) => {
     const updateWord = await Phrases.findByIdAndUpdate(req.params.phraseId, req.body)
     res.redirect('/my-phrases')
 })
+
+
+app.get('/start-language-learning', (req, res) => {
+    res.render('start-journey/start-page.ejs')
+})
+
+app.post('/start-language-learning', async (req, res) => {
+    const hash = bcrypt.hashSync(req.body.password, 10);
+    req.body.password = hash;
+    await Users.create(req.body)
+    res.redirect('/')
+})
+
+app.get('/sign-in-language-learning', (req, res) => {
+    res.render('start-journey/sign-in.ejs')
+})
+
+app.post('/sign-in-language-learning', async (req, res) => {
+    console.log(req.body)
+
+    const findUser = await Users.findOne({
+        username: req.body.username,
+    });
+    console.log(findUser)
+
+    const passwordsMatch = await bcrypt.compare(req.body.password, findUser.password)
+
+    // req.session.user = { username: findUser.username, _id: findUser._id };
+
+    if (passwordsMatch) {
+        res.redirect("/");
+      } else {
+        return res.send(`Login Failed`);
+      }
+
+})
+
+
+app.listen(port, () => {
+    console.log("Listening on port", process.env.PORT);
+});
