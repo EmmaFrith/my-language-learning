@@ -10,11 +10,17 @@
 
 <body>
 
-    <header>My language learning 🇫🇷</header>
+    <header>
+        My language learning 🇫🇷 
+
+        <%- include('../partials/nav') %>
+    </header>
+
+
 
     <article>
 
-        <h1>Add a french word</h1>
+        <h1>Add a new word</h1>
 
         <form action="/my-words" method="POST">
             <label for="word">French word</label>

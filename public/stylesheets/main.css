@@ -10,7 +10,7 @@ body {
 
 header {
     background: #F5DDE0;
-    padding: 20px 20px;
+    padding: 15px 20px;
 }    
 
 h1, h2 {
@@ -57,4 +57,10 @@ article {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

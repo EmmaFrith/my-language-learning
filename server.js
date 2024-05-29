@@ -28,6 +28,8 @@ const path = require('path')
 
 const port = process.env.PORT ? process.env.PORT : 3000;
 
+const session = require('express-session')
+
 app.use(express.json())
 
 app.use(express.urlencoded({ extended: false }));
@@ -36,7 +38,16 @@ app.use(methodOverride("_method"))
 
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, "public")))
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false },
+    })
+);
 
 
 app.get("/", (req, res) => {
@@ -146,13 +157,13 @@ app.post('/sign-in-language-learning', async (req, res) => {
 
     const passwordsMatch = await bcrypt.compare(req.body.password, findUser.password)
 
-    // req.session.user = { username: findUser.username, _id: findUser._id };
+    req.session.user = { username: findUser.username, _id: findUser._id };
 
     if (passwordsMatch) {
         res.redirect("/");
-      } else {
+    } else {
         return res.send(`Login Failed`);
-      }
+    }
 
 })
 
