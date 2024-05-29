@@ -10,7 +10,7 @@
 
 <body>
   <header>
-    My language learning 🇫🇷
+    My language learning 
 
     <div>
       <%- include('../partials/nav') %>
@@ -31,16 +31,31 @@
 
     </div>
 
-
+<!-- 
     <ul>
       <% words.forEach(word=> { %>
         <li>
           <%= word.word %> - <%= word.translatedToEng %> <a href="/my-words/<%= word._id %>">Change</a>
         </li>
         <% }) %>
-    </ul>
+    </ul> -->
 
-
+    
+    <table>
+      <tr class="table-header">
+        <td>French word</td>
+        <td>Your translation</td>
+        <td>Change</td>
+      </tr>
+      <% words.forEach(word=> { %>
+      <tr> 
+        <td> <%= word.word %> </td>
+        <td> <%= word.translatedToEng %> </td>
+        <td><a href="/my-words/<%= word._id %>">Change</a></td>
+      </tr>
+      <% }) %>
+    </table>
+    
 
   </article>
 

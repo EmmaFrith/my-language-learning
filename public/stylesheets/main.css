@@ -68,11 +68,12 @@ article {
 
 .secondary-nav-links {
     display: flex;
-    flex-direction: row;;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .bottom-nav-links {
-    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .translated-to-eng {
@@ -104,4 +105,18 @@ h2 {
     border-radius: 10px;
     padding: 30px;
     margin-top: 40px;
+}
+
+.table-header {
+    background-color: #f5f5f5
+}
+
+table {
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+td {
+    padding: 5px 15px;
 }

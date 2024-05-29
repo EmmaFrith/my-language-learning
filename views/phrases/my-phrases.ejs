@@ -10,7 +10,7 @@
 
 <body>
   <header>
-    My language learning 🇫🇷
+    My language learning
     <div>
       <%- include('../partials/nav') %>
     </div>
@@ -21,20 +21,37 @@
 
     <div class="secondary-nav-links">
 
-    <p><a href="/my-phrases/new-phrase">Add a new phrase</a> ✏️</p>
-    <p class="bottom-nav-links"><a href="/my-words">Go to words instead</a></p>
+      <p><a href="/my-phrases/new-phrase">Add a new phrase</a> ✏️</p>
+      <p class="bottom-nav-links"><a href="/my-words">Go to words instead</a></p>
 
-  </div>
+    </div>
 
-    <ul>
+    <!-- <ul>
       <% phrases.forEach(phrase=> { %>
         <li>
           <%= phrase.phrase %> - <%= phrase.translatedToEng %> <a href="/my-phrases/<%= phrase._id %>">Change</a>
         </li>
         <% }) %>
-    </ul>
+    </ul> -->
 
-    
+    <table>
+      <tr class="table-header">
+        <td>French phrase</td>
+        <td>Your translation</td>
+        <td>Change</td>
+      </tr>
+      <% phrases.forEach(phrase=> { %>
+        <tr>
+          <td>
+            <%= phrase.phrase %>
+          </td>
+          <td>
+            <%= phrase.translatedToEng %>
+          </td>
+          <td><a href="/my-phrases/<%= phrase._id %>">Change</a></td>
+        </tr>
+        <% }) %>
+    </table>
 
   </article>
 
