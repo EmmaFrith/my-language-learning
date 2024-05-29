@@ -64,7 +64,7 @@ app.get("/my-words", async (req, res) => {
 
 app.get("/my-phrases", async (req, res) => {
     const findUserFromDatabase = await Users.findById(req.session.user._id)
-    const phrases = await Phrases.find( { createdBy: findUserFromDatabase._id })
+    const phrases = await Phrases.find({ createdBy: findUserFromDatabase._id })
     res.render("phrases/my-phrases.ejs", {
         phrases
     });
@@ -141,6 +141,13 @@ app.get('/start-language-learning', (req, res) => {
 })
 
 app.post('/start-language-learning', async (req, res) => {
+    const userInDatabase = await Users.findOne({ username: req.body.username })
+    if (userInDatabase) {
+        return res.send('Username already taken.')
+    }
+    if (req.body.password !== req.body.confirmPassword) {
+        return res.send("Passwords don't match")
+    }
     const hash = bcrypt.hashSync(req.body.password, 10);
     req.body.password = hash;
     const newUser = await Users.create(req.body)
@@ -161,7 +168,10 @@ app.post('/sign-in-language-learning', async (req, res) => {
     const findUser = await Users.findOne({
         username: req.body.username,
     });
-    console.log(findUser)
+
+    if (!findUser) {
+        return res.send('Sign in failed. Please try again.')
+    }
 
     const passwordsMatch = await bcrypt.compare(req.body.password, findUser.password)
 
