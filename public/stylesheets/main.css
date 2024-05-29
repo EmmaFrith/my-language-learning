@@ -11,6 +11,9 @@ body {
 header {
     background: #F5DDE0;
     padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }    
 
 h1, h2 {
@@ -59,8 +62,10 @@ article {
     margin-left: 20px;
 }
 
-header {
+.secondary-nav-links {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+}
+
+.bottom-nav-links {
+    margin-left: 20px;
 }

@@ -11,14 +11,20 @@
 <body>
   <header>
     My language learning 🇫🇷
-
-    <%- include('../partials/nav') %>
+    <div>
+      <%- include('../partials/nav') %>
+    </div>
   </header>
 
   <article>
     <h1>My phrases</h1>
 
+    <div class="secondary-nav-links">
+
     <p><a href="/my-phrases/new-phrase">Add a new phrase</a></p>
+    <p class="bottom-nav-links"><a href="/my-words">Go to words instead</a></p>
+
+  </div>
 
     <ul>
       <% phrases.forEach(phrase=> { %>
@@ -27,6 +33,8 @@
         </li>
         <% }) %>
     </ul>
+
+    
 
   </article>
 
