@@ -23,12 +23,14 @@
 
         <h1>Add a new phrase</h1>
 
-        <form action="/my-phrases" method="POST">
+        <form action="/my-phrases" method="POST" class="edit-form">
             <label for="phrase">French phrase</label>
             <input type="text" name="phrase" id="phrase">
             <label for="translatedToEng">Transation</label>
             <input type="text" name="translatedToEng" id="translatedToEng">
-            <button type="submit">Add phrase</button>
+            <div>
+                <button type="submit">Add phrase</button>
+            </div>
         </form>
 
     </article>

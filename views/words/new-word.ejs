@@ -21,18 +21,18 @@
 
     </header>
 
-
-
     <article>
 
         <h1>Add a new word</h1>
 
-        <form action="/my-words" method="POST">
+        <form action="/my-words" method="POST" class="edit-form">
             <label for="word">French word</label>
             <input type="text" name="word" id="word">
             <label for="translatedToEng">Translation</label>
             <input type="text" name="translatedToEng" id="translatedToEng">
-            <button type="submit">Add word</button>
+            <div>
+                <button type="submit">Add word</button>
+            </div>
         </form>
 
     </article>

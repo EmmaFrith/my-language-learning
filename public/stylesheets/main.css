@@ -78,3 +78,23 @@ article {
 .translated-to-eng {
     margin-top: 0px;
 }
+
+.side-button {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+
+.delete-button {
+    background-color: #FA8072;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+h2 {
+    margin-bottom: 5px;
+}
