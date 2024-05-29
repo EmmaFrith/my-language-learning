@@ -50,8 +50,14 @@ app.use(
 );
 
 
-app.get("/", (req, res) => {
-    res.render("home.ejs");
+app.get("/", async (req, res) => {
+    const words = await Words.find(req.body)
+    const wordLength = words.length
+    const phrases = await Phrases.find(req.body)
+    const phrasesLength = phrases.length
+    res.render("home.ejs", {
+        wordLength, phrasesLength
+    });
 });
 
 app.get("/my-words", async (req, res) => {
@@ -197,3 +203,5 @@ app.get("/sign-out", (req, res) => {
 app.listen(port, () => {
     console.log("Listening on port", process.env.PORT);
 });
+
+
