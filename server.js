@@ -167,6 +167,11 @@ app.post('/sign-in-language-learning', async (req, res) => {
 
 })
 
+app.get("/sign-out", (req, res) => {
+    req.session.destroy();
+    res.redirect('/start-language-learning');
+  });
+
 
 app.listen(port, () => {
     console.log("Listening on port", process.env.PORT);
