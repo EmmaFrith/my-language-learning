@@ -23,7 +23,19 @@
 
             <p><a href="/my-words">My words</a></p>
 
-            <p>You've learnt <%= wordLength %> words.</p>
+            <% if (wordLength> 1) { %>
+
+                <p>You've learnt <%= wordLength %> words.</p>
+
+                <% } else if (wordLength===0) { %>
+
+                    <p>Start adding words.</p>
+
+                    <% } else { %>
+
+                        <p>You've learnt <%= wordLength %> word.</p>
+
+                        <% } %>
 
         </div>
 
@@ -31,7 +43,19 @@
 
             <p><a href="/my-phrases">My phrases</a></p>
 
-            <p>You've learnt <%= phrasesLength %> phrases.</p>
+            <% if (phrasesLength> 1) { %>
+
+                <p>You've learnt <%= phrasesLength %> phrases.</p>
+
+                <% } else if (phrasesLength===0) { %>
+
+                    <p>Start adding phrases.</p>
+
+                <% } else { %>
+
+                    <p>You've learnt <%= phrasesLength %> phrase.</p>
+
+                    <% } %>
 
         </div>
 
