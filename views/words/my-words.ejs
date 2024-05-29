@@ -9,20 +9,25 @@
 </head>
 
 <body>
-  <header>My language learning 🇫🇷 🇵🇹 🇮🇹</header>
+  <header>My language learning 🇫🇷</header>
 
-  <h1>My words</h1>
+  <article>
 
-  <p><a href="/my-words/new-word">Add a new word</a></p>
+    <h1>My words</h1>
+
+    <p><a href="/my-words/new-word">Add a new word</a></p>
 
 
-  <ul>
-    <% words.forEach(word=> { %>
-      <li>
-        <%= word.word %> - <%= word.translatedToEng %> <a href="/my-words/<%= word._id %>">Change</a>
-      </li>
-      <% }) %>
-  </ul>
+    <ul>
+      <% words.forEach(word=> { %>
+        <li>
+          <%= word.word %> - <%= word.translatedToEng %> <a href="/my-words/<%= word._id %>">Change</a>
+        </li>
+        <% }) %>
+    </ul>
+
+
+  </article>
 
 </body>
 
@@ -30,5 +35,3 @@
 </body>
 
 </html>
-
-

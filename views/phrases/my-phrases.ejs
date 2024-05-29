@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/main.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  <title>Document</title>
 </head>
+
 <body>
-  <header>My language learning 🇫🇷 🇵🇹 🇮🇹</header>
+  <header>My language learning 🇫🇷</header>
+
+  <article>
     <h1>My phrases</h1>
 
     <p><a href="/my-phrases/new-phrase">Add a new phrase</a></p>
 
-  <ul>
-    <% phrases.forEach(phrase=> { %>
-      <li>
-        <%= phrase.phrase %> - <%= phrase.translatedToEng %> <a href="/my-phrases/<%= phrase._id %>">Change</a>
-      </li>
-      <% }) %>
-  </ul>
+    <ul>
+      <% phrases.forEach(phrase=> { %>
+        <li>
+          <%= phrase.phrase %> - <%= phrase.translatedToEng %> <a href="/my-phrases/<%= phrase._id %>">Change</a>
+        </li>
+        <% }) %>
+    </ul>
+
+  </article>
 
 </body>
+
 </html>
-
-
