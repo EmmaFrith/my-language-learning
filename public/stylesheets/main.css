@@ -15,3 +15,24 @@ header {
 h1, h2 {
     font-weight: 300;
 }
+
+input {
+    padding: 5px;
+    margin: 10px;
+}
+
+label {
+    margin: 10px;
+}
+
+h2 {
+    margin-left: 10px;
+}
+
+button {
+    background-color: #48CAE4;
+    border: none;
+    padding: 5px 10px; 
+    border-radius: 5px;
+    margin: 10px;
+}
