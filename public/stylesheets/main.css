@@ -98,3 +98,10 @@ article {
 h2 {
     margin-bottom: 5px;
 }
+
+.my-words-block {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 40px;
+}
