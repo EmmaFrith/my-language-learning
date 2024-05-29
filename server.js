@@ -55,14 +55,16 @@ app.get("/", (req, res) => {
 });
 
 app.get("/my-words", async (req, res) => {
-    const words = await Words.find()
+    const findUserFromDatabase = await Users.findById(req.session.user._id)
+    const words = await Words.find({ createdBy: findUserFromDatabase._id })
     res.render("words/my-words.ejs", {
         words
     });
 });
 
 app.get("/my-phrases", async (req, res) => {
-    const phrases = await Phrases.find()
+    const findUserFromDatabase = await Users.findById(req.session.user._id)
+    const phrases = await Phrases.find( { createdBy: findUserFromDatabase._id })
     res.render("phrases/my-phrases.ejs", {
         phrases
     });
@@ -77,11 +79,13 @@ app.get("/my-phrases/new-phrase", (req, res) => {
 });
 
 app.post("/my-words", async (req, res) => {
+    req.body.createdBy = req.session.user._id
     await Words.create(req.body)
     res.redirect('/my-words')
 })
 
 app.post("/my-phrases", async (req, res) => {
+    req.body.createdBy = req.session.user._id
     await Phrases.create(req.body)
     res.redirect('/my-phrases')
 })
@@ -139,7 +143,11 @@ app.get('/start-language-learning', (req, res) => {
 app.post('/start-language-learning', async (req, res) => {
     const hash = bcrypt.hashSync(req.body.password, 10);
     req.body.password = hash;
-    await Users.create(req.body)
+    const newUser = await Users.create(req.body)
+    req.session.user = {
+        username: newUser.username,
+        _id: newUser._id
+    };
     res.redirect('/')
 })
 
@@ -157,7 +165,10 @@ app.post('/sign-in-language-learning', async (req, res) => {
 
     const passwordsMatch = await bcrypt.compare(req.body.password, findUser.password)
 
-    req.session.user = { username: findUser.username, _id: findUser._id };
+    req.session.user = {
+        username: findUser.username,
+        _id: findUser._id
+    };
 
     if (passwordsMatch) {
         res.redirect("/");
@@ -170,7 +181,7 @@ app.post('/sign-in-language-learning', async (req, res) => {
 app.get("/sign-out", (req, res) => {
     req.session.destroy();
     res.redirect('/start-language-learning');
-  });
+});
 
 
 app.listen(port, () => {
