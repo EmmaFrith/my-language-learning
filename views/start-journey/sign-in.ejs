@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/main.css">
     <title>Document</title>
 </head>
+
 <body>
 
-    <header>My language learning 🇫🇷 🇵🇹 🇮🇹</header>
+    <header>My language learning 🇫🇷</header>
 
-    <h1>Sign in</h1>
+    <div id="sign-in-block">
 
-    <form action="/sign-in-language-learning" method="POST">
-        <label for="username">Your username</label>
-        <br>
-        <input type="text" name="username" id="username">
-        <br>
-        <label for="password">Your password</label>
-        <br>
-        <input type="text" name="password" id="password">
-        <br>
-        <button type="submit">Sign in</button>
-    </form>
+        <h1>Sign in</h1>
+
+        <form action="/sign-in-language-learning" method="POST" id="sign-in-form-block">
+            <label for="username">Your username</label>
+
+            <input type="text" name="username" id="username">
+
+            <label for="password">Your password</label>
+
+            <input type="text" name="password" id="password">
+
+            <button type="submit">Sign in</button>
+        </form>
+
+    </div>
 
 </body>
+
 </html>

@@ -18,21 +18,36 @@ h1, h2 {
 
 input {
     padding: 5px;
-    margin: 10px;
+    margin-top: 5px;
 }
 
 label {
-    margin: 10px;
-}
-
-h2 {
-    margin-left: 10px;
+    margin-top: 10px;
 }
 
 button {
     background-color: #48CAE4;
     border: none;
-    padding: 5px 10px; 
+    padding: 7px 12px; 
     border-radius: 5px;
-    margin: 10px;
+    margin-top: 20px;
 }
+
+#sign-in-block {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+#sign-in-form-block {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+#home-page-block {
+    display: flex;
+    justify-content: space-around;
+}
+
+

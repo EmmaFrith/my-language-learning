@@ -2,11 +2,20 @@ h1 {
     font-size: 50px;
 }
 
-div {
+#start-page-color-block {
     background: #F5DDE0;
     padding: 5px 20px;
 }
 
 
+#create-an-account-block {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
 
-
+form {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}

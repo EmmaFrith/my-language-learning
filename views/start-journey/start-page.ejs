@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +8,47 @@
     <link rel="stylesheet" href="/stylesheets/start-page.css">
     <title>Document</title>
 </head>
+
 <body>
 
-    <div>
-    <h1>My language learning</h1>
+    <div id="start-page-color-block">
 
-    <p>Build your own study guide.</p>
+        <h1>My language learning</h1>
 
-    <p>Record words and phrases on the go in a language of your choice.</p>
+        <p>Build your own study guide.</p>
 
-    <p>Refer to them, revise them, or celebrate what you've learnt.</p>
+        <p>Record words and phrases on the go in a language of your choice.</p>
+
+        <p>Refer to them, revise them, or celebrate what you've learnt.</p>
 
     </div>
 
-    <h2>Create an account</h2>
+    <div id="create-an-account-block">
 
-    <form action="/start-language-learning" method="POST">
-        <label for="username">Create a unique username</label>
-        <br>
-        <input type="text" name="username" id="username">
-        <br>
-        <label for="password">Create a password</label>
-        <br>
-        <input type="text" name="password" id="password">
-        <br>
-        <label for="confirmPassword">Enter your password again</label>
-        <br>
-        <input type="text" name="confirmPassword" id="confirmPassword">
-        <br>
-        <button type="submit">Sign up</button>
-    </form>
+        <h2>Create an account</h2>
+
+        <form action="/start-language-learning" method="POST">
+            <label for="username">Create a unique username</label>
+
+            <input type="text" name="username" id="username">
+
+            <label for="password">Create a password</label>
+
+            <input type="text" name="password" id="password">
+
+            <label for="confirmPassword">Enter your password again</label>
+
+            <input type="text" name="confirmPassword" id="confirmPassword">
+
+            <button type="submit">Sign up</button>
+
+        </form>
 
 
-    <p>Already have an account? <a href="/sign-in-language-learning">Sign in</a></p>
+        <p>Already have an account? <a href="/sign-in-language-learning">Sign in</a></p>
+
+    </div>
 
 </body>
+
 </html>
