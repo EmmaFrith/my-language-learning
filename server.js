@@ -51,9 +51,10 @@ app.use(
 
 
 app.get("/", async (req, res) => {
-    const words = await Words.find(req.body)
+    const findUserFromDatabase = await Users.findById(req.session.user._id)
+    const words = await Words.find({ createdBy: findUserFromDatabase._id })
     const wordLength = words.length
-    const phrases = await Phrases.find(req.body)
+    const phrases = await Phrases.find({ createdBy: findUserFromDatabase._id })
     const phrasesLength = phrases.length
     res.render("home.ejs", {
         wordLength, phrasesLength
