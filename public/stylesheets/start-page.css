@@ -20,3 +20,13 @@ form {
     flex-direction: column;
     align-self: flex-start;
 }
+
+#flag-start-page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flag {
+    margin-top: 75px;
+    margin-right: 60px;
+}
