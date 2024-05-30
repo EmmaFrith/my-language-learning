@@ -49,7 +49,6 @@ app.use(
     })
 );
 
-
 app.get("/", async (req, res) => {
     const findUserFromDatabase = await Users.findById(req.session.user._id)
     const words = await Words.find({ createdBy: findUserFromDatabase._id })
@@ -86,49 +85,88 @@ app.get("/my-phrases/new-phrase", (req, res) => {
 });
 
 app.post("/my-words", async (req, res) => {
-    req.body.createdBy = req.session.user._id
-    await Words.create(req.body)
-    res.redirect('/my-words')
+    if (req.session.user) {
+        try {
+            req.body.createdBy = req.session.user._id
+            await Words.create(req.body)
+            res.redirect('/my-words')
+        } catch (error) {
+            console.log(error.message)
+            res.send('Include a word and translation')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 })
 
 app.post("/my-phrases", async (req, res) => {
-    req.body.createdBy = req.session.user._id
-    await Phrases.create(req.body)
-    res.redirect('/my-phrases')
+    if (req.session.user) {
+        try {
+            req.body.createdBy = req.session.user._id
+            await Phrases.create(req.body)
+            res.redirect('/my-phrases')
+        } catch (error) {
+            res.send('Include a phrase and translation')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 })
 
-
 app.get('/my-words/:wordId', async (req, res) => {
-
-    console.log(req.params.wordId)
-
-    const singleWord = await Words.findById(req.params.wordId)
-
-    // res.send(singleWord) 
-
-    res.render('words/single-word.ejs', {
-        singleWord
-    });
+    if (req.session.user) {
+        try {
+            const singleWord = await Words.findById(req.params.wordId)
+            res.render('words/single-word.ejs', {
+                singleWord
+            });
+        } catch (error) {
+            res.send('Something went wrong.')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 })
 
 app.get('/my-phrases/:phraseId', async (req, res) => {
-
-    const singlePhrase = await Phrases.findById(req.params.phraseId)
-
-    res.render('phrases/single-phrase.ejs', {
-        singlePhrase
-    });
+    if (req.session.user) {
+        try {
+            const singlePhrase = await Phrases.findById(req.params.phraseId)
+            res.render('phrases/single-phrase.ejs', {
+                singlePhrase
+            });
+        } catch (error) {
+            res.send('Something went wrong.')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 })
 
-
 app.delete('/my-words/:wordId', async (req, res) => {
-    await Words.findByIdAndDelete(req.params.wordId)
-    res.redirect('/my-words')
+    if (req.session.user) {
+        try {
+            await Words.findByIdAndDelete(req.params.wordId)
+            res.redirect('/my-words')
+        } catch (error) {
+            res.send('Something went wrong.')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 })
 
 app.delete('/my-phrases/:phraseId', async (req, res) => {
-    await Phrases.findByIdAndDelete(req.params.phraseId)
-    res.redirect('/my-phrases')
+    if (req.session.user) {
+        try {
+            await Phrases.findByIdAndDelete(req.params.phraseId)
+            res.redirect('/my-phrases')
+        } catch (error) {
+            res.send('Something went wrong.')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 })
 
 
@@ -141,7 +179,6 @@ app.put('/my-phrases/:phraseId', async (req, res) => {
     const updateWord = await Phrases.findByIdAndUpdate(req.params.phraseId, req.body)
     res.redirect('/my-phrases')
 })
-
 
 app.get('/start-language-learning', (req, res) => {
     res.render('start-journey/start-page.ejs')
