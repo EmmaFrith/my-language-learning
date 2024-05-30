@@ -34,12 +34,13 @@ label {
 }
 
 button {
-    background-color: #48CAE4;
+    background-color:#113065;
     border: none;
     padding: 7px 12px; 
     border-radius: 5px;
     margin-top: 20px;
     font-family: 'Patrick Hand';
+    color: white
 }
 
 #sign-in-block {
@@ -138,4 +139,18 @@ td {
     border: solid;
     border-radius: 50px;
     border-width: thin;
+}
+
+#header-without-nav {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#flag-header-without-nav {
+    width: 10px;
+    height: 10px;
+    border: solid;
+    border-radius: 50px;
+    border-width: thin;
+    margin-left: 3px;
 }
