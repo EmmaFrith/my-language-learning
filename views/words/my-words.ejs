@@ -9,16 +9,17 @@
 </head>
 
 <body>
-  <header>
-    My language learning 
 
+  <header>
+    <div>
+      Franglais
+      <img class="flag-header" src="https://cdn.countryflags.com/thumbs/france/flag-round-250.png"
+        alt="round french flag thumbnail">
+    </div>
     <div>
       <%- include('../partials/nav') %>
     </div>
   </header>
-
-
-
 
   <article>
 
@@ -31,7 +32,7 @@
 
     </div>
 
-<!-- 
+    <!-- 
     <ul>
       <% words.forEach(word=> { %>
         <li>
@@ -40,7 +41,7 @@
         <% }) %>
     </ul> -->
 
-    
+
     <table>
       <tr class="table-header">
         <td>French word</td>
@@ -48,14 +49,18 @@
         <td>Change</td>
       </tr>
       <% words.forEach(word=> { %>
-      <tr> 
-        <td> <%= word.word %> </td>
-        <td> <%= word.translatedToEng %> </td>
-        <td><a href="/my-words/<%= word._id %>">Change</a></td>
-      </tr>
-      <% }) %>
+        <tr>
+          <td>
+            <%= word.word %>
+          </td>
+          <td>
+            <%= word.translatedToEng %>
+          </td>
+          <td><a href="/my-words/<%= word._id %>">Change</a></td>
+        </tr>
+        <% }) %>
     </table>
-    
+
 
   </article>
 

@@ -27,6 +27,12 @@ form {
 }
 
 .flag {
-    margin-top: 75px;
+    margin-top: 30px;
     margin-right: 60px;
+    margin-left: 80px;
+}
+
+#para-wrap {
+    display: flex;
+    flex-wrap: wrap;
 }

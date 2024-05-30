@@ -131,3 +131,11 @@ td {
     border: solid;
     border-radius: 50px;
 }
+
+.flag-header {
+    width: 10px;
+    height: 10px;
+    border: solid;
+    border-radius: 50px;
+    border-width: thin;
+}
