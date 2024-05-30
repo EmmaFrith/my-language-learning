@@ -1,4 +1,3 @@
-
 const Users = require("./models/users.js");
 
 const express = require('express');
@@ -14,7 +13,6 @@ mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
-
 
 const methodOverride = require('method-override');
 
@@ -50,30 +48,54 @@ app.use(
 );
 
 app.get("/", async (req, res) => {
-    const findUserFromDatabase = await Users.findById(req.session.user._id)
-    const words = await Words.find({ createdBy: findUserFromDatabase._id })
-    const wordLength = words.length
-    const phrases = await Phrases.find({ createdBy: findUserFromDatabase._id })
-    const phrasesLength = phrases.length
-    res.render("home.ejs", {
-        wordLength, phrasesLength
-    });
+    if (req.session.user) {
+        try {
+            const findUserFromDatabase = await Users.findById(req.session.user._id)
+            const words = await Words.find({ createdBy: findUserFromDatabase._id })
+            const wordLength = words.length
+            const phrases = await Phrases.find({ createdBy: findUserFromDatabase._id })
+            const phrasesLength = phrases.length
+            res.render("home.ejs", {
+                wordLength, phrasesLength
+            });
+        } catch (error) {
+            res.send('Something went wrong.')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 });
 
 app.get("/my-words", async (req, res) => {
-    const findUserFromDatabase = await Users.findById(req.session.user._id)
-    const words = await Words.find({ createdBy: findUserFromDatabase._id })
-    res.render("words/my-words.ejs", {
-        words
-    });
+    if (req.session.user) {
+        try {
+            const findUserFromDatabase = await Users.findById(req.session.user._id)
+            const words = await Words.find({ createdBy: findUserFromDatabase._id })
+            res.render("words/my-words.ejs", {
+                words
+            });
+        } catch (error) {
+            res.send('Something went wrong.')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 });
 
 app.get("/my-phrases", async (req, res) => {
-    const findUserFromDatabase = await Users.findById(req.session.user._id)
-    const phrases = await Phrases.find({ createdBy: findUserFromDatabase._id })
-    res.render("phrases/my-phrases.ejs", {
-        phrases
-    });
+    if (req.session.user) {
+        try {
+            const findUserFromDatabase = await Users.findById(req.session.user._id)
+            const phrases = await Phrases.find({ createdBy: findUserFromDatabase._id })
+            res.render("phrases/my-phrases.ejs", {
+                phrases
+            });
+        } catch (error) {
+            res.send('Something went wrong.')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 });
 
 app.get("/my-words/new-word", (req, res) => {
@@ -91,13 +113,12 @@ app.post("/my-words", async (req, res) => {
             await Words.create(req.body)
             res.redirect('/my-words')
         } catch (error) {
-            console.log(error.message)
             res.send('Include a word and translation')
         }
     } else {
         res.redirect('/sign-in-language-learning')
     }
-})
+});
 
 app.post("/my-phrases", async (req, res) => {
     if (req.session.user) {
@@ -169,15 +190,30 @@ app.delete('/my-phrases/:phraseId', async (req, res) => {
     }
 })
 
-
 app.put('/my-words/:wordId', async (req, res) => {
-    const updateWord = await Words.findByIdAndUpdate(req.params.wordId, req.body)
-    res.redirect('/my-words')
+    if (req.session.user) {
+        try {
+            const updateWord = await Words.findByIdAndUpdate(req.params.wordId, req.body)
+            res.redirect('/my-words')
+        } catch (error) {
+            res.send('Something went wrong.')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 })
 
 app.put('/my-phrases/:phraseId', async (req, res) => {
-    const updateWord = await Phrases.findByIdAndUpdate(req.params.phraseId, req.body)
-    res.redirect('/my-phrases')
+    if (req.session.user) {
+        try {
+            const updateWord = await Phrases.findByIdAndUpdate(req.params.phraseId, req.body)
+            res.redirect('/my-phrases')
+        } catch (error) {
+            res.send('Something went wrong.')
+        }
+    } else {
+        res.redirect('/sign-in-language-learning')
+    }
 })
 
 app.get('/start-language-learning', (req, res) => {
@@ -190,6 +226,9 @@ app.post('/start-language-learning', async (req, res) => {
         return res.send('Username already taken.')
     }
     if (req.body.password !== req.body.confirmPassword) {
+        return res.send("Passwords don't match")
+    }
+    if (req.body.password === '') {
         return res.send("Passwords don't match")
     }
     const hash = bcrypt.hashSync(req.body.password, 10);
@@ -207,36 +246,28 @@ app.get('/sign-in-language-learning', (req, res) => {
 })
 
 app.post('/sign-in-language-learning', async (req, res) => {
-    console.log(req.body)
-
     const findUser = await Users.findOne({
         username: req.body.username,
     });
-
     if (!findUser) {
         return res.send('Sign in failed. Please try again.')
     }
-
     const passwordsMatch = await bcrypt.compare(req.body.password, findUser.password)
-
     req.session.user = {
         username: findUser.username,
         _id: findUser._id
     };
-
     if (passwordsMatch) {
         res.redirect("/");
     } else {
         return res.send(`Login Failed`);
     }
-
 })
 
 app.get("/sign-out", (req, res) => {
     req.session.destroy();
     res.redirect('/start-language-learning');
 });
-
 
 app.listen(port, () => {
     console.log("Listening on port", process.env.PORT);
