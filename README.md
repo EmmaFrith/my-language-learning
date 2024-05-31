@@ -2,7 +2,7 @@
 
 ## Background
 
-Use [Franglais]() to build your own French dictionary. 
+Use [Franglais](https://unrivaled-panda-92bf9a.netlify.app/start-language-learning "Franglais") to build your own French dictionary. 
 
 You can:
 
@@ -52,10 +52,12 @@ I used the follow technologies:
 * ejs
 * html 
 * javscript
+* css
 * Mongo Atlas
 * Mongoose
 * Express
 * bcrypt
+* node.js
 
 
 
@@ -72,4 +74,3 @@ I would like to:
 * immprove visual design and cater for different screen sizes, especially for mobile as this app is conceived to be used on the go
 
 
-## Code notes
