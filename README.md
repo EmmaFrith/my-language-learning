@@ -26,7 +26,11 @@ To expand this, I'd like give the option to select mutiple languages, so that yo
 
 ## Screenshots
 
+![Screenshot showing the phrases list](./images/phrases-list.png)
+Screenshot showing the phrases list.
 
+![Screenshot showing the words list](./images/words-list.png)
+Screenshot showing the words list.
 
 ## Technologies used
 
