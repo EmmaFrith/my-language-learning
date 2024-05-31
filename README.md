@@ -24,18 +24,31 @@ To expand this, I'd like give the option to select multiple languages, so that y
 ## Screenshots
 
 ![Screenshot showing the start page](./images/start-page.png)
+
 Screenshot showing the start page.
 
+
+
 ![Screenshot showing the home page with words and phrases added](./images/home-page.png)
+
 Screenshot showing the home page with words and phrases added.
 
+
+
 ![Screenshot showing the home page with no words and phrases](./images/no-words-or-phrases.png)
+
 Screenshot showing the home page with no words and phrases.
 
+
+
 ![Screenshot showing the phrases list](./images/phrases-list.png)
+
 Screenshot showing the phrases list.
 
+
+
 ![Screenshot showing the words list](./images/words-list.png)
+
 Screenshot showing the words list.
 
 
@@ -65,12 +78,14 @@ I used the follow technologies:
 
 1. Create a revision view so that you can see words and phrases on revision cards on a carousel:
 
-![Screenshot showing the revision card view](./images/revision-cards.png)
+![Screenshot showing the revision card view](./images/revision.png)
+
 Screenshot showing a revision card view.
 
 2. Cater for multiple languages:
 
 ![Screenshot showing the revision card view](./images/choose-language.png)
+
 Screenshot showing how the app could cater for multiple languages.
 
 3. Do more with data and inputs, for example:
@@ -79,12 +94,15 @@ Screenshot showing how the app could cater for multiple languages.
 * allow you to specify the type of entry e.g. noun, verb
 * create a field for adding prepositions e.g. 'le' or 'la'
 
-4. Improve the design, for example:
+4. Improve the design and UX, for example:
 
 * catering for different screen sizes such as mobile - this app is conceived to be used on the go
 * improve or completely change the branding depending on the scope of the design
+* ask the user whether they're entering a word or phrase, rather than forcing them down 2 seperate paths 
+
 
 I also need to tidy up the code, for example:
 
 * refactoring it to include controllers to break up the server.js file 
 * being smarter with css rules 
+* use fewer templates - for example, rather than have a seperate set of templates for words and phrases, I could use half the number of templates but include conditional logic depending on whether the using is adding a phrase or a word 
