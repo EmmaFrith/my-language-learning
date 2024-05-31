@@ -37,7 +37,7 @@ Screenshot showing the home page with no words and phrases.
 
 ![Screenshot showing the home page with one word and one phrase](./images/one-word.png)
 
-Screenshot showing the home page with no words and phrases.
+Screenshot showing the home page with one word and one phrase.
 
 
 
@@ -75,15 +75,14 @@ Screenshot showing how I designed the app.
 
 I used the follow technologies:
 
-* ejs
-* html 
-* javascript
-* css
-* Mongo Atlas
+* EJS
+* HTML 
+* JavaScript
+* CSS
+* Mongo DB
 * Mongoose
 * Express
-* bcrypt
-* node.js
+* Node.js
 
 
 
@@ -111,7 +110,8 @@ Screenshot showing how the app could cater for multiple languages.
 
 * catering for different screen sizes such as mobile - this app is conceived to be used on the go
 * improve or completely change the branding depending on the scope of the design
-* ask the user whether they're entering a word or phrase, rather than forcing them down 2 seperate paths 
+* ask the user whether they're entering a word or phrase when they're entering it, rather than forcing them down 2 seperate paths early on
+* improve the navigation of the site
 
 
 I also need to tidy up the code, for example:
@@ -119,3 +119,4 @@ I also need to tidy up the code, for example:
 * refactoring it to include controllers to break up the server.js file 
 * being smarter with css rules 
 * use fewer templates - for example, rather than have a seperate set of templates for words and phrases, I could use half the number of templates but include conditional logic depending on whether the user is adding a phrase or a word 
+* add logic to the nav bar 
