@@ -15,9 +15,9 @@ When I was studying French at university, I often came across words and phrases 
 
 I found the notes app on my phone didn't inspire me to refer back to my notes. There weren't many options for organising my language notes. 
 
-There are lots of opportunities to expand on this MVP. I conceieved this as an app for any language, but given the short timeframe to build the project I have focussed on just one language.
+There are lots of opportunities to expand on this MVP. I conceived this as an app for any language, but given the short timeframe to build the project I have focussed on just one language.
 
-To expand this, I'd like give the option to select mutiple languages, so that you can have multiple dictionaries accessible from a landing page. 
+To expand this, I'd like give the option to select multiple languages, so that you can have multiple dictionaries accessible from a landing page. 
 
 
 
@@ -51,7 +51,7 @@ I used the follow technologies:
 
 * ejs
 * html 
-* javscript
+* javascript
 * css
 * Mongo Atlas
 * Mongoose
@@ -63,14 +63,28 @@ I used the follow technologies:
 
 ## Future enhancements
 
-I would like to:
+1. Create a revision view so that you can see words and phrases on revision cards on a carousel:
 
-* create a revision view so that you can see words and phrases on revision cards on a carousel 
+![Screenshot showing the revision card view](./images/revision-cards.png)
+Screenshot showing a revision card view.
+
+2. Cater for multiple languages:
+
+![Screenshot showing the revision card view](./images/choose-language.png)
+Screenshot showing how the app could cater for multiple languages.
+
+3. Do more with data and inputs, for example:
+
 * allow you to link associated words and phrases
-* allow you to specifiy the type of entry e.g. noun, verb
+* allow you to specify the type of entry e.g. noun, verb
 * create a field for adding prepositions e.g. 'le' or 'la'
-* cater for multiple languages 
-* refactor the code to include controllers to break up the server js file 
-* immprove visual design and cater for different screen sizes, especially for mobile as this app is conceived to be used on the go
 
+4. Improve the design, for example:
 
+* catering for different screen sizes such as mobile - this app is conceived to be used on the go
+* improve or completely change the branding depending on the scope of the design
+
+I also need to tidy up the code, for example:
+
+* refactoring it to include controllers to break up the server.js file 
+* being smarter with css rules 
