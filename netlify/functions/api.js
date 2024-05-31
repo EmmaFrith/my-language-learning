@@ -11,10 +11,7 @@ dotenv.config();
 const bcrypt = require('bcrypt');
 
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
-mongoose.connection.on("connected", () => {
-    console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
-});
+
 
 const methodOverride = require('method-override');
 
@@ -269,6 +266,12 @@ app.get("/sign-out", (req, res) => {
     res.redirect('/start-language-learning');
 });
 
-module.exports.handler = serverless(app)
+async function connectToDb() {
+    await mongoose.connect(process.env.MONGODB_URI);
+  }
+  
+  connectToDb()
+  
+  module.exports.handler = serverless(app)
 
 
