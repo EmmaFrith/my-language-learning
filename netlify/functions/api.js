@@ -3,7 +3,6 @@ const express = require("express");
 
 const Users = require("../../models/users.js");
 
-const express = require('express');
 const app = express();
 
 const dotenv = require('dotenv');
