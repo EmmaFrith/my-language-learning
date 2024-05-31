@@ -4,12 +4,13 @@
 
 Use [Franglais](https://unrivaled-panda-92bf9a.netlify.app/start-language-learning "Franglais") to build your own French dictionary. 
 
-You can:
+With this account-based app you can:
 
 * record words and phrases
 * refer back to them
 * revise them
 * see how many you've learnt
+* edit and delete words
 
 When I was studying French at university, I often came across words and phrases while I was out and wanted somewhere to record them. For example, I would see some unfamiliar vocab in a French book while I was travelling, and wanted to remember it.
 
@@ -17,8 +18,7 @@ I found the notes app on my phone didn't inspire me to refer back to my notes. T
 
 There are lots of opportunities to expand on this MVP. I conceived this as an app for any language, but given the short timeframe to build the project I have focussed on just one language.
 
-To expand this, I'd like give the option to select multiple languages, so that you can have multiple dictionaries accessible from a landing page. 
-
+To expand on this, I'd like to give the option to select multiple languages, so that you can have multiple dictionaries accessible from a landing page.
 
 
 ## Screenshots
@@ -29,15 +29,21 @@ Screenshot showing the start page.
 
 
 
-![Screenshot showing the home page with words and phrases added](./images/home-page.png)
-
-Screenshot showing the home page with words and phrases added.
-
-
-
 ![Screenshot showing the home page with no words and phrases](./images/no-words-or-phrases.png)
 
 Screenshot showing the home page with no words and phrases.
+
+
+
+![Screenshot showing the home page with one word and one phrase](./images/one-word.png)
+
+Screenshot showing the home page with no words and phrases.
+
+
+
+![Screenshot showing the home page with words and phrases added](./images/home-page.png)
+
+Screenshot showing the home page multiple words and phrases.
 
 
 
@@ -50,6 +56,13 @@ Screenshot showing the phrases list.
 ![Screenshot showing the words list](./images/words-list.png)
 
 Screenshot showing the words list.
+
+
+
+![Screenshot showing how you can delete or edit an entry](./images/delete.png)
+
+Screenshot showing how you can delete or edit an entry.
+
 
 
 ## Planning materials 
@@ -105,4 +118,4 @@ I also need to tidy up the code, for example:
 
 * refactoring it to include controllers to break up the server.js file 
 * being smarter with css rules 
-* use fewer templates - for example, rather than have a seperate set of templates for words and phrases, I could use half the number of templates but include conditional logic depending on whether the using is adding a phrase or a word 
+* use fewer templates - for example, rather than have a seperate set of templates for words and phrases, I could use half the number of templates but include conditional logic depending on whether the user is adding a phrase or a word 
