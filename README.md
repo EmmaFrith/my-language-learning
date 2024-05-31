@@ -26,6 +26,15 @@ To expand this, I'd like give the option to select mutiple languages, so that yo
 
 ## Screenshots
 
+![Screenshot showing the start page](./images/start-page.png)
+Screenshot showing the start page.
+
+![Screenshot showing the home page with words and phrases added](./images/home-page.png)
+Screenshot showing the home page with words and phrases added.
+
+![Screenshot showing the home page with no words and phrases](./images/no-words-or-phrases.png)
+Screenshot showing the home page with no words and phrases.
+
 ![Screenshot showing the phrases list](./images/phrases-list.png)
 Screenshot showing the phrases list.
 
